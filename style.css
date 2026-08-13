@@ -7,7 +7,6 @@
   --azul: #0067b8;
   --azul-hover: #005a9e;
   --hero: #1b1b1b;
-  --ms-laranja: #f25022;
   --ms-verde: #7fba00;
   --ms-azul: #00a4ef;
   --ms-amarelo: #ffb900;
@@ -89,10 +88,9 @@ a:hover {
   height: 6px;
   background: linear-gradient(
     to right,
-    var(--ms-laranja) 0 25%,
-    var(--ms-verde) 25% 50%,
-    var(--ms-azul) 50% 75%,
-    var(--ms-amarelo) 75% 100%
+    var(--ms-azul) 0 33.333%,
+    var(--ms-verde) 33.333% 66.666%,
+    var(--ms-amarelo) 66.666% 100%
   );
 }
 
@@ -113,9 +111,6 @@ a:hover {
 }
 
 .logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   color: var(--texto);
   text-decoration: none;
   font-size: 15px;
@@ -125,23 +120,6 @@ a:hover {
 .logo:hover {
   color: var(--texto);
 }
-
-.logo-listras {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  width: 16px;
-  height: 16px;
-}
-
-.logo-listras i {
-  display: block;
-}
-
-.logo-listras i:nth-child(1) { background: var(--ms-laranja); }
-.logo-listras i:nth-child(2) { background: var(--ms-verde); }
-.logo-listras i:nth-child(3) { background: var(--ms-azul); }
-.logo-listras i:nth-child(4) { background: var(--ms-amarelo); }
 
 .site-nav {
   display: flex;
