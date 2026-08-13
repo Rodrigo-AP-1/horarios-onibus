@@ -3,27 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Horários do Transporte de Apoio da UFPel em Pelotas: Anglo, Odonto (Panvel) e Direito.">
+  <meta name="theme-color" content="#14213d">
   <link rel="stylesheet" href="style.css">
-  <title>Horários de Ônibus — UFPel</title>
+  <title>Horários de ônibus — UFPel</title>
 </head>
-<body>
+<body data-page="home">
 
   <div class="container">
 
     <header class="hero">
-      <span class="kicker">UFPel · Transporte</span>
-      <h1>Linhas de ônibus</h1>
-      <p>Selecione uma parada para ver os horários</p>
+      <span class="kicker">UFPel · Transporte de Apoio</span>
+      <h1>Horários de ônibus</h1>
+      <p>Anglo, Odonto (Panvel) e Direito — quadro oficial de Pelotas</p>
     </header>
 
     <main>
-      <div class="paradas card">
-        <ul>
+      <section class="paradas card">
+        <h2 class="sr-only">Paradas</h2>
+        <ul id="lista-paradas">
           <li><a href="paradas/anglo.html">Anglo</a></li>
-          <li><a href="paradas/panvel.html">Panvel</a></li>
+          <li><a href="paradas/odonto.html">Odonto</a></li>
           <li><a href="paradas/direito.html">Direito</a></li>
         </ul>
-      </div>
+      </section>
+
+      <div id="proximos-geral"></div>
+      <div id="resumo-linhas" class="resumo-linhas"></div>
+      <aside class="avisos card">
+        <h2>Informações</h2>
+        <ul>
+          <li>Horários oficiais do Transporte de Apoio da UFPel, de segunda a sexta.</li>
+          <li>O horário é a saída do itinerário, não a chegada em cada parada.</li>
+          <li>Pode haver tolerância de até ±10 minutos, conforme o trânsito.</li>
+          <li>A parada Odonto é a mesma conhecida como Panvel.</li>
+        </ul>
+        <p>
+          Fonte:
+          <a href="https://wp.ufpel.edu.br/transporte/transporte-apoio/pelotas/" target="_blank" rel="noopener noreferrer">
+            Transporte de Apoio — Pelotas
+          </a>
+          · atualizado em 22 de março de 2026
+        </p>
+      </aside>
     </main>
 
   </div>
@@ -33,6 +55,9 @@
       <p>Feito por Rodrigo</p>
     </div>
   </footer>
+
+  <script src="dados.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>

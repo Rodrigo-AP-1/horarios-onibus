@@ -1,7 +1,9 @@
 # Horários de ônibus — UFPel
 
-Horários das paradas Anglo, Panvel e Direito.
+Quadro do Transporte de Apoio em Pelotas, com as paradas **Anglo**, **Odonto** (conhecida como Panvel) e **Direito**.
 
-https://rodrigo-ap-1.github.io/horarios-onibus-ufpel/
+Os horários vêm da página oficial da UFPel e correspondem à **saída do itinerário**, com tolerância de até ±10 minutos.
 
-Abre o `index.html` no navegador. Se quiser, usa Live Server no VS Code.
+Fonte: [Transporte de Apoio — Pelotas](https://wp.ufpel.edu.br/transporte/transporte-apoio/pelotas/) (atualizado em 22 de março de 2026).
+
+Abra o `index.html` no navegador. Se quiser, use Live Server no VS Code.

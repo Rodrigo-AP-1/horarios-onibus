@@ -85,13 +85,10 @@ header p {
 .hero {
   position: relative;
   overflow: hidden;
-  background-image:
-    linear-gradient(rgba(20, 33, 61, 0.72), rgba(20, 33, 61, 0.55)),
-    url(imagens/11.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 300px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(252, 163, 17, 0.35), transparent 32%),
+    linear-gradient(160deg, #0f1a30 0%, #14213d 55%, #1d335c 100%);
+  min-height: 280px;
   padding: 52px 36px;
   border-radius: var(--raio);
   color: var(--branco);
@@ -122,8 +119,20 @@ header p {
 
 .hero p {
   margin-top: 12px;
-  max-width: 30ch;
+  max-width: 38ch;
   color: rgba(255, 255, 255, 0.88);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .paradas {
@@ -145,8 +154,7 @@ header p {
   gap: 14px;
   text-decoration: none;
   color: var(--tinta);
-  font-weight: 600;
-  padding: 18px 16px;
+  padding: 16px;
   transition: background-color 0.18s, padding-left 0.18s;
 }
 
@@ -162,6 +170,29 @@ header p {
   content: "→";
   margin-left: auto;
   font-family: "DM Mono", monospace;
+  color: var(--tinta-suave);
+}
+
+.parada-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.parada-nome {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.parada-sub {
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+.parada-next {
+  font-family: "DM Mono", monospace;
+  font-size: 0.78rem;
   color: var(--tinta-suave);
 }
 
@@ -196,6 +227,188 @@ header p {
 
 .nav-paradas a[aria-current="page"] {
   background-color: var(--tinta);
+  color: var(--branco);
+  border-color: var(--tinta);
+}
+
+.bloco-proximos,
+.resumo-linha,
+.avisos,
+.vazio,
+.horarios {
+  padding: 22px 24px;
+  margin-bottom: 22px;
+}
+
+.bloco-proximos h2,
+.resumo-linha h2,
+.avisos h2,
+.vazio h2,
+.horarios h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.resumo-linhas {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+@media (min-width: 700px) {
+  .resumo-linhas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.resumo-linha p {
+  color: var(--tinta-suave);
+}
+
+.horas-linha {
+  margin-top: 10px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.82rem;
+  color: var(--tinta);
+  line-height: 1.7;
+}
+
+.avisos ul {
+  padding-left: 18px;
+  color: var(--tinta-suave);
+}
+
+.avisos li + li {
+  margin-top: 6px;
+}
+
+.avisos p {
+  margin-top: 14px;
+  font-size: 0.92rem;
+}
+
+.avisos a {
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.vazio p,
+.legenda,
+.vazio-filtro {
+  color: var(--tinta-suave);
+}
+
+.viagem {
+  padding: 14px 0;
+}
+
+.viagem + .viagem {
+  border-top: 1px dashed var(--linha);
+}
+
+.viagem.destaque {
+  background: #fff7e8;
+  border: 1px solid var(--destaque);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.viagem.destaque + .viagem.destaque {
+  border-top: 1px solid var(--destaque);
+}
+
+.viagem-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.viagem time {
+  font-family: "DM Mono", monospace;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.linha-badge {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+}
+
+.linha-esef {
+  background: #eef3ff;
+  border-color: #c9d6f5;
+}
+
+.quando {
+  margin-left: auto;
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--destaque-escuro);
+}
+
+.viagem-papel {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+
+.itinerario {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.chip {
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  padding: 4px 9px;
+}
+
+.chip-aqui {
+  background: var(--destaque);
+  border-color: var(--destaque);
+  color: var(--tinta);
+  font-weight: 500;
+}
+
+.seta {
+  color: var(--tinta-suave);
+  font-size: 0.75rem;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filtros button {
+  font-family: "DM Mono", monospace;
+  font-size: 0.8rem;
+  background: var(--branco);
+  color: var(--tinta);
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.filtros button[aria-selected="true"] {
+  background: var(--tinta);
   color: var(--branco);
   border-color: var(--tinta);
 }
@@ -238,7 +451,7 @@ footer {
   }
 
   .hero {
-    min-height: 240px;
+    min-height: 220px;
     padding: 36px 22px;
   }
 
@@ -248,5 +461,9 @@ footer {
 
   header h1 {
     font-size: 2rem;
+  }
+
+  .quando {
+    margin-left: 0;
   }
 }
