@@ -1,12 +1,4 @@
-header.card {
-  padding: 22px 24px;
-}
-
-.horarios .legenda {
-  margin: -4px 0 12px;
-  font-size: 0.9rem;
-}
-
-.vazio-filtro {
-  padding: 8px 0 4px;
+.conteudo {
+  padding-top: 16px;
+  padding-bottom: 48px;
 }

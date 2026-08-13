@@ -4,55 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Horários do Transporte de Apoio da UFPel em Pelotas: Anglo, Odonto (Panvel) e Direito.">
-  <meta name="theme-color" content="#14213d">
+  <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="style.css">
   <title>Horários de ônibus — UFPel</title>
 </head>
 <body data-page="home">
 
-  <div class="container">
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Horários UFPel</a>
+      <nav class="site-nav" aria-label="Paradas">
+        <a href="paradas/anglo.html">Anglo</a>
+        <a href="paradas/odonto.html">Odonto</a>
+        <a href="paradas/direito.html">Direito</a>
+      </nav>
+    </div>
+  </header>
 
-    <header class="hero">
-      <span class="kicker">UFPel · Transporte de Apoio</span>
+  <section class="hero">
+    <div class="container">
       <h1>Horários de ônibus</h1>
-      <p>Anglo, Odonto (Panvel) e Direito — quadro oficial de Pelotas</p>
-    </header>
+      <p>Transporte de apoio da UFPel em Pelotas. Paradas Anglo, Odonto (Panvel) e Direito.</p>
+    </div>
+  </section>
 
-    <main>
-      <section class="paradas card">
-        <h2 class="sr-only">Paradas</h2>
-        <ul id="lista-paradas">
-          <li><a href="paradas/anglo.html">Anglo</a></li>
-          <li><a href="paradas/odonto.html">Odonto</a></li>
-          <li><a href="paradas/direito.html">Direito</a></li>
-        </ul>
-      </section>
+  <main class="container">
+    <section>
+      <h2 class="sr-only">Paradas</h2>
+      <ul class="paradas" id="lista-paradas">
+        <li><a href="paradas/anglo.html">Anglo</a></li>
+        <li><a href="paradas/odonto.html">Odonto</a></li>
+        <li><a href="paradas/direito.html">Direito</a></li>
+      </ul>
+    </section>
 
-      <div id="proximos-geral"></div>
-      <div id="resumo-linhas" class="resumo-linhas"></div>
-      <aside class="avisos card">
-        <h2>Informações</h2>
-        <ul>
-          <li>Horários oficiais do Transporte de Apoio da UFPel, de segunda a sexta.</li>
-          <li>O horário é a saída do itinerário, não a chegada em cada parada.</li>
-          <li>Pode haver tolerância de até ±10 minutos, conforme o trânsito.</li>
-          <li>A parada Odonto é a mesma conhecida como Panvel.</li>
-        </ul>
-        <p>
-          Fonte:
-          <a href="https://wp.ufpel.edu.br/transporte/transporte-apoio/pelotas/" target="_blank" rel="noopener noreferrer">
-            Transporte de Apoio — Pelotas
-          </a>
-          · atualizado em 22 de março de 2026
-        </p>
-      </aside>
-    </main>
+    <div id="proximos-geral"></div>
+    <div id="resumo-linhas" class="resumo-linhas"></div>
 
-  </div>
+    <aside class="avisos">
+      <h2>Informações</h2>
+      <ul>
+        <li>Horários oficiais, de segunda a sexta.</li>
+        <li>O horário é a saída do itinerário, não a chegada em cada parada.</li>
+        <li>Pode haver até 10 minutos de diferença, conforme o trânsito.</li>
+        <li>Odonto é a parada que o pessoal chama de Panvel.</li>
+      </ul>
+      <p>
+        Fonte:
+        <a href="https://wp.ufpel.edu.br/transporte/transporte-apoio/pelotas/" target="_blank" rel="noopener noreferrer">
+          Transporte de Apoio — Pelotas
+        </a>
+        (22 de março de 2026)
+      </p>
+    </aside>
+  </main>
 
-  <footer>
-    <div class="footer">
-      <p>Feito por Rodrigo</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>Universidade Federal de Pelotas</p>
+      <p>Rodrigo Anchieta Prates</p>
     </div>
   </footer>
 

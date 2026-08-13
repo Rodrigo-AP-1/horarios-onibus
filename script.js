@@ -80,12 +80,12 @@ function renderItinerario(itinerario, paradaId) {
   return itinerario
     .map((ponto, index) => {
       const atual = nomes.includes(ponto);
-      const classe = atual ? "chip chip-aqui" : "chip";
+      const classe = atual ? ' class="chip-aqui"' : "";
       const seta =
         index < itinerario.length - 1
-          ? '<span class="seta" aria-hidden="true">→</span>'
+          ? '<span class="seta" aria-hidden="true"> › </span>'
           : "";
-      return `<span class="${classe}">${escapeHtml(ponto)}</span>${seta}`;
+      return `<span${classe}>${escapeHtml(ponto)}</span>${seta}`;
     })
     .join("");
 }
@@ -111,13 +111,13 @@ function renderViagem(viagem, paradaId, extraClass = "") {
 
 function renderAvisos() {
   return `
-    <aside class="avisos card">
+    <aside class="avisos">
       <h2>Informações</h2>
       <ul>
-        <li>Horários oficiais do Transporte de Apoio da UFPel, de segunda a sexta.</li>
+        <li>Horários oficiais, de segunda a sexta.</li>
         <li>O horário é a saída do itinerário, não a chegada em cada parada.</li>
-        <li>Pode haver tolerância de até ±10 minutos, conforme o trânsito.</li>
-        <li>A parada Odonto é a mesma conhecida como Panvel.</li>
+        <li>Pode haver até 10 minutos de diferença, conforme o trânsito.</li>
+        <li>Odonto é a parada que o pessoal chama de Panvel.</li>
       </ul>
       <p>
         Fonte:
@@ -145,17 +145,16 @@ function renderHome() {
       const detalhe = !ehDiaUtil()
         ? "Sem operação hoje"
         : proximas[0]
-          ? `Próximo ${proximas[0].hora} · ${proximas[0].linhaNome}`
+          ? `Próximo às ${proximas[0].hora}, ${proximas[0].linhaNome}`
           : "Sem mais saídas hoje";
 
       return `
         <li>
           <a href="paradas/${parada.arquivo}">
-            <span class="parada-texto">
-              <span class="parada-nome">${escapeHtml(parada.nome)}</span>
-              <span class="parada-sub">${escapeHtml(parada.subtitulo)}</span>
-              <span class="parada-next">${escapeHtml(detalhe)}</span>
-            </span>
+            <span class="parada-nome">${escapeHtml(parada.nome)}</span>
+            <span class="parada-sub">${escapeHtml(parada.subtitulo)}</span>
+            <span class="parada-next">${escapeHtml(detalhe)}</span>
+            <span class="link-mais">Ver horários</span>
           </a>
         </li>
       `;
@@ -178,21 +177,21 @@ function renderHome() {
 
   if (!ehDiaUtil()) {
     proximos.innerHTML = `
-      <div class="vazio card">
+      <div class="vazio">
         <h2>Sem transporte de apoio hoje</h2>
-        <p>O serviço opera de segunda a sexta. Volte no próximo dia útil para ver o próximo ônibus.</p>
+        <p>O serviço roda de segunda a sexta. No próximo dia útil o quadro volta a aparecer aqui.</p>
       </div>
     `;
   } else if (seguintes.length === 0) {
     proximos.innerHTML = `
-      <div class="vazio card">
-        <h2>Fim das saídas de hoje</h2>
-        <p>Não há mais partidas no quadro oficial. O primeiro ônibus de amanhã sai às 07:00 do Direito (ESEF · FaMed).</p>
+      <div class="vazio">
+        <h2>Acabaram as saídas de hoje</h2>
+        <p>O primeiro ônibus de amanhã sai às 07:00 do Direito, na linha ESEF · FaMed.</p>
       </div>
     `;
   } else {
     proximos.innerHTML = `
-      <section class="card bloco-proximos">
+      <section class="bloco-proximos">
         <h2>Próximas saídas</h2>
         ${seguintes
           .map((viagem) => renderViagem(viagem, null, "viagem-compacta"))
@@ -203,7 +202,7 @@ function renderHome() {
 
   linhas.innerHTML = LINHAS.map(
     (linha) => `
-      <section class="card resumo-linha">
+      <section class="resumo-linha">
         <h2>${escapeHtml(linha.nome)}</h2>
         <p>${escapeHtml(linha.descricao)}</p>
         <p class="horas-linha">${linha.partidas.map((p) => p.hora).join(" · ")}</p>
@@ -232,21 +231,21 @@ function renderParada() {
     let proximoHtml = "";
     if (!ehDiaUtil()) {
       proximoHtml = `
-        <div class="vazio card">
+        <div class="vazio">
           <h2>Sem transporte de apoio hoje</h2>
-          <p>O serviço opera de segunda a sexta.</p>
+          <p>O serviço roda de segunda a sexta.</p>
         </div>
       `;
     } else if (proximas.length === 0) {
       proximoHtml = `
-        <div class="vazio card">
-          <h2>Fim das saídas de hoje</h2>
-          <p>Não há mais ônibus passando em ${escapeHtml(parada.nome)} no quadro de hoje.</p>
+        <div class="vazio">
+          <h2>Acabaram as saídas de hoje</h2>
+          <p>Não tem mais ônibus passando em ${escapeHtml(parada.nome)} no quadro de hoje.</p>
         </div>
       `;
     } else {
       proximoHtml = `
-        <section class="card bloco-proximos">
+        <section class="bloco-proximos">
           <h2>Próximo ônibus</h2>
           ${proximas.map((viagem) => renderViagem(viagem, paradaId, "destaque")).join("")}
         </section>
@@ -265,9 +264,9 @@ function renderParada() {
           `
         ).join("")}
       </div>
-      <section class="horarios card">
+      <section class="horarios">
         <h2>Quadro de ${escapeHtml(parada.nome)}</h2>
-        <p class="legenda">Segunda a sexta · horário de saída do itinerário</p>
+        <p class="legenda">Segunda a sexta. Horário de saída do itinerário.</p>
         ${
           filtradas.length
             ? filtradas.map((viagem) => renderViagem(viagem, paradaId)).join("")
