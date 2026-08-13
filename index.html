@@ -4,15 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Horários do Transporte de Apoio da UFPel em Pelotas: Anglo, Odonto (Panvel) e Direito.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#1b1b1b">
   <link rel="stylesheet" href="style.css">
   <title>Horários de ônibus — UFPel</title>
 </head>
 <body data-page="home">
 
+  <div class="brand-bar" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="container">
-      <a class="logo" href="index.html">Horários UFPel</a>
+      <a class="logo" href="index.html">
+        <span class="logo-listras" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        Horários UFPel
+      </a>
       <nav class="site-nav" aria-label="Paradas">
         <a href="paradas/anglo.html">Anglo</a>
         <a href="paradas/odonto.html">Odonto</a>
@@ -24,13 +29,14 @@
   <section class="hero">
     <div class="container">
       <h1>Horários de ônibus</h1>
-      <p>Transporte de apoio da UFPel em Pelotas. Paradas Anglo, Odonto (Panvel) e Direito.</p>
+      <p>Transporte de apoio da UFPel em Pelotas. Confira as saídas das paradas Anglo, Odonto (Panvel) e Direito.</p>
+      <a class="btn" href="#paradas">Ver paradas</a>
     </div>
   </section>
 
   <main class="container">
-    <section>
-      <h2 class="sr-only">Paradas</h2>
+    <section class="secao" id="paradas">
+      <h2>Escolha a parada</h2>
       <ul class="paradas" id="lista-paradas">
         <li><a href="paradas/anglo.html">Anglo</a></li>
         <li><a href="paradas/odonto.html">Odonto</a></li>
@@ -39,7 +45,11 @@
     </section>
 
     <div id="proximos-geral"></div>
-    <div id="resumo-linhas" class="resumo-linhas"></div>
+
+    <section class="secao">
+      <h2>Linhas</h2>
+      <div id="resumo-linhas" class="resumo-linhas"></div>
+    </section>
 
     <aside class="avisos">
       <h2>Informações</h2>
@@ -60,8 +70,8 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>Universidade Federal de Pelotas</p>
+    <div class="container footer-grid">
+      <p>Universidade Federal de Pelotas · Transporte de Apoio</p>
       <p>Rodrigo Anchieta Prates</p>
     </div>
   </footer>

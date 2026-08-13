@@ -151,10 +151,13 @@ function renderHome() {
       return `
         <li>
           <a href="paradas/${parada.arquivo}">
-            <span class="parada-nome">${escapeHtml(parada.nome)}</span>
-            <span class="parada-sub">${escapeHtml(parada.subtitulo)}</span>
-            <span class="parada-next">${escapeHtml(detalhe)}</span>
-            <span class="link-mais">Ver horários</span>
+            <span class="parada-media" aria-hidden="true"></span>
+            <span class="parada-corpo">
+              <span class="parada-nome">${escapeHtml(parada.nome)}</span>
+              <span class="parada-sub">${escapeHtml(parada.subtitulo)}</span>
+              <span class="parada-next">${escapeHtml(detalhe)}</span>
+              <span class="link-mais">Ver horários ›</span>
+            </span>
           </a>
         </li>
       `;
